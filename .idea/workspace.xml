@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d18cc62b-ba3d-4b84-95bc-7182a1595f10" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Final.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/posts/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/posts/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/users/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/posts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/posts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/posts/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/posts/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/posts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/posts/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/posts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/posts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/users/serializers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,14 +36,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\osce-academy\semester II\IT\Final" />

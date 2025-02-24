@@ -1,5 +1,5 @@
-from .serializers import PostSerializer
-from .models import Post, PostImage
+from .serializers import PostSerializer, CommentSerializer
+from .models import Post, PostImage, Comment
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.exceptions import PermissionDenied
 from rest_framework import generics
@@ -104,4 +104,32 @@ class PostListView(generics.ListAPIView):
 
     def get_queryset(self):
         return Post.objects.all().order_by("-created_at")[:20]
+
+class CommentCreateView(generics.CreateAPIView):
+    serializer_class = CommentSerializer
+    permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        post_id = self.kwargs.get("post_id")
+        post = generics.get_object_or_404(Post, id=post_id)
+        serializer.save(user=self.request.user, post=post)
+
+class CommentUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        comment = generics.get_object_or_404(Comment, id=self.kwargs["pk"])
+        if comment.user != self.request.user:
+            raise PermissionDenied("You do not have permission to edit or delete this comment.")
+        return comment
+
+class PostCommentsListView(generics.ListAPIView):
+    serializer_class = CommentSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        post_id = self.kwargs.get("post_id")
+        return Comment.objects.filter(post_id=post_id).order_by("-written_at")
 
