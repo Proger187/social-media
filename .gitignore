@@ -1,0 +1,11 @@
+token
+draft
+server/.env
+.idea
+
+# Ignore the env folder
+venv/
+
+# Ignore compiled Python files
+*.pyc
+__pycache__/
