@@ -22,7 +22,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user', include("users.urls")),
-    path("post", include("posts.urls"))
+    path("post", include("posts.urls")),
+    path("like", include("likes.urls"))
 ]
 if settings.DEBUG:  # Только в режиме отладки
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
