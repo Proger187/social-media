@@ -25,9 +25,13 @@ class ProfileView(generics.RetrieveUpdateAPIView):
         return serializer.save(user=self.request.user)
 
 class ProfileDetailView(generics.RetrieveAPIView):
-    queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = [AllowAny]  # Publicly accessible
+    lookup_field = "user_id"
+
+    def get_queryset(self):
+        user_id = self.kwargs.get("user_id")  # Get user_id from URL
+        return Profile.objects.filter(user_id=user_id)  # Filter by user_id
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer

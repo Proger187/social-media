@@ -35,12 +35,6 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         # Add custom fields to the token
         token["username"] = user.username
         token["email"] = user.email
-        token["birth_date"] = user.profile.birth_date
-        token["bio"] = user.profile.bio
-        if user.profile.avatar and hasattr(user.profile.avatar, "url"):
-            token["avatar"] = user.profile.avatar.url
-        else:
-            token["avatar"] = None
 
         return token
 
