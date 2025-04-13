@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Post, PostImage, Comment
+from users.serializers import UserSerializer
 
 
 class PostImageSerializer(serializers.ModelSerializer):
@@ -16,6 +17,7 @@ class PostSerializer(serializers.ModelSerializer):
         extra_kwargs = {"author": {"read_only": True}}
 
 class CommentSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
     class Meta:
         model = Comment
         fields = ["id", "text", "user", "post", "written_at"]

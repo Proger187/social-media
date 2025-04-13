@@ -3,6 +3,7 @@ from rest_framework import generics, viewsets
 from django.contrib.auth.models import User
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from .models import Profile
+import sys
 from .serializers import UserSerializer, ProfileSerializer, CustomTokenObtainPairSerializer
 
 
@@ -17,6 +18,8 @@ class ProfileView(generics.RetrieveUpdateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_object(self):
+        print(self.request)
+        sys.stdout.flush()
         profile, created = Profile.objects.get_or_create(user=self.request.user)
         return profile
 

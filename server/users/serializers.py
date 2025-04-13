@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from .models import Profile
+import sys
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 
@@ -17,9 +18,10 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(source="user.username", read_only=True)
     class Meta:
         model = Profile
-        fields = ['id', 'user', 'bio', 'birth_date', 'avatar']
+        fields = ['id', 'user', 'username', 'bio', 'birth_date', 'avatar']
         read_only_fields = ["user"]
 
     def update(self, instance, validated_data):
