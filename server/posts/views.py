@@ -76,6 +76,18 @@ class PostUpdateView(generics.UpdateAPIView):
 
     def perform_update(self, serializer):
         post = serializer.save(author = self.request.user)
+        deleted_ids = self.request.data.get("deleted_images", [])
+
+        if isinstance(deleted_ids, str):
+            import json
+            deleted_ids = json.loads(deleted_ids)
+
+        for image_id in deleted_ids:
+            try:
+                image = PostImage.objects.get(id=image_id, post=post)
+                image.delete()
+            except PostImage.DoesNotExist:
+                pass
 
         if "images" in self.request.FILES:
             uploaded_files = self.request.FILES.getlist('images')

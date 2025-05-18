@@ -49,7 +49,7 @@ class CommentGetLikes(generics.ListAPIView):
 
     def get_queryset(self):
         comment_id = self.kwargs.get("comment_id")
-        return PostLike.objects.filter(comment=comment_id).select_related("user")
+        return CommentLike.objects.filter(comment=comment_id).select_related("user")
 
 class SubscribeCreateView(generics.CreateAPIView):
     serializer_class = SubscribeSerializer
@@ -70,7 +70,7 @@ class GetSubscribers(generics.ListAPIView):
 
     def get_queryset(self):
         subscribed_to_id = self.kwargs.get("subscribed_to_id")
-        return PostLike.objects.filter(subscribed_to=subscribed_to_id).select_related("user")
+        return Subscribe.objects.filter(subscribed_to=subscribed_to_id)
 
 
 
